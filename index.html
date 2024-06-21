@@ -1,0 +1,92 @@
+<!DOCTYPE html> 
+<html lang="ru"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Каталог товаров</title> 
+    <style> 
+        body { 
+            font-family: Arial, sans-serif; 
+            background-color: #f8f9fa; 
+            margin: 0; 
+            padding: 20px; 
+        } 
+        .catalog { 
+            max-width: 400px; 
+            margin: 0 auto; 
+        } 
+        .catalog h1 { 
+            font-size: 24px; 
+            margin-bottom: 20px; 
+        } 
+        ul, li { 
+            list-style: none; 
+            padding: 0; 
+            margin: 0; 
+        } 
+        .menu-item { 
+            cursor: pointer; 
+            padding: 10px; 
+            background-color: #a94442; 
+            color: #fff; 
+            margin: 5px 0; 
+        } 
+        .submenu { 
+            display: none; 
+            padding-left: 20px; 
+        } 
+        .menu-item:hover { 
+            background-color: #d9534f; 
+        } 
+    </style> 
+</head> 
+<body> 
+    <div class="catalog"> 
+        <h1>Каталог товаров</h1> 
+        <ul> 
+            <li class="menu-item">Книги 
+                <ul class="submenu"> 
+                    <li class="menu-item">Отечественные 
+                        <ul class="submenu"> 
+                            <li class="menu-item">Детективы</li> 
+                            <li class="menu-item">Научная фантастика</li> 
+                            <li class="menu-item">Исторические</li> 
+                        </ul> 
+                    </li> 
+                    <li class="menu-item">Зарубежные</li> 
+                </ul> 
+            </li> 
+            <li class="menu-item">DVD 
+                <ul class="submenu"> 
+                    <li class="menu-item">Отечественные 
+                        <ul class="submenu"> 
+                            <li class="menu-item">Детективы</li> 
+                            <li class="menu-item">Научная фантастика</li> 
+                            <li class="menu-item">Исторические</li> 
+                        </ul> 
+                    </li> 
+                    <li class="menu-item">Зарубежные</li> 
+                </ul> 
+            </li> 
+        </ul> 
+    </div> 
+    <script> 
+        document.querySelectorAll('.menu-item').forEach(item => { 
+            item.addEventListener('click', function(e) { 
+                e.stopPropagation(); 
+                let submenu = this.querySelector('.submenu'); 
+                if (submenu) { 
+                    submenu.style.display = submenu.style.display === 'none' ? 'block' : 'none'; 
+                } else { 
+                    alert('Вы можете пройти по ссылке'); 
+                } 
+            }); 
+        }); 
+ 
+        // Изначально скрыть все подменю 
+        document.querySelectorAll('.submenu').forEach(submenu => { 
+            submenu.style.display = 'none'; 
+        }); 
+    </script> 
+</body> 
+</html>
